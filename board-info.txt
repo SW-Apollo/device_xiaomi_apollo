@@ -1,1 +1,1 @@
-require board=apollo
+require board=apollo|apollo|apollon|apollopro

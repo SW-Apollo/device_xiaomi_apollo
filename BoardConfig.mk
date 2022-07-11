@@ -41,7 +41,7 @@ BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := apollo
+TARGET_OTA_ASSERT_DEVICE := apollo,apollon,apollopro
 
 # Board Info
 TARGET_BOARD_INFO_FILE := device/xiaomi/apollo/board-info.txt
@@ -85,36 +85,6 @@ TARGET_SCREEN_DENSITY := 440
 # GKI
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 
-# A/B Paritioning
-ifneq ($(PRODUCT_BUILD_SYSTEM_IMAGE),false)
-AB_OTA_PARTITIONS += system
-AB_OTA_PARTITIONS += vbmeta_system
-endif
-#ifneq ($(BOARD_PREBUILT_VENDORIMAGE),false) // We assume vendor always exists
-AB_OTA_PARTITIONS += vendor
-# endif
-ifneq ($(PRODUCT_BUILD_PRODUCT_IMAGE),false)
-AB_OTA_PARTITIONS += product
-endif
-ifneq ($(PRODUCT_BUILD_SYSTEM_EXT_IMAGE),false)
-AB_OTA_PARTITIONS += system_ext
-endif
-ifneq ($(PRODUCT_BUILD_BOOT_IMAGE),false)
-AB_OTA_PARTITIONS += boot
-endif
-ifneq ($(PRODUCT_BUILD_VENDOR_BOOT_IMAGE),false)
-AB_OTA_PARTITIONS += vendor_boot
-AB_OTA_PARTITIONS += dtbo
-endif
-ifneq ($(PRODUCT_BUILD_VBMETA_IMAGE),false)
-AB_OTA_PARTITIONS += vbmeta
-endif
-
-# A/B recovery support
-BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
-ifneq ($(PRODUCT_BUILD_VENDOR_BOOT_IMAGE),false)
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-endif
 TARGET_NO_RECOVERY := true
 
 # Sepolicy
@@ -164,9 +134,6 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
 # boot.img
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
-
-# vendor_boot.img
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 0x06000000
 
 # Allow LZ4 compression
 BOARD_RAMDISK_USE_LZ4 := true
