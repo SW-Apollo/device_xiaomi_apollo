@@ -165,4 +165,5 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 8602517504
 # DTB
 BOARD_PREBUILT_DTBIMAGE_DIR := device/xiaomi/$(TARGET_BOOTLOADER_BOARD_NAME)-kernel
 
-include device/xiaomi/apollo-firmware/BoardConfigVendor.mk
+include device/xiaomi/apollo-firmware/Android.mk
+TARGET_RELEASETOOLS_EXTENSIONS := device/xiaomi/apollo-firmware

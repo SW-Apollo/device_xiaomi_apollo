@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 Snuggy Wuggy Research and Development Center 
+# Copyright (C) 2021 Snuggy Wuggy Research and Development Center
 #                    and The hentaiOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,26 +38,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common void stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-$(call inherit-product, device/xiaomi/alioth/device.mk)
+$(call inherit-product, device/xiaomi/apollo/device.mk)
 
 # Don't build super.img.
 PRODUCT_BUILD_SUPER_PARTITION := false
 
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_BRAND := POCO
-PRODUCT_NAME := lineage_alioth
-PRODUCT_DEVICE := alioth
-PRODUCT_MODEL := M2012K11AG
+PRODUCT_BRAND := MI
+PRODUCT_NAME := aosp_apollo
+PRODUCT_DEVICE := apollo
+PRODUCT_MODEL := M2007J3SY
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=alioth
+    PRODUCT_NAME=apollo
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="alioth_global-user 11 RKQ1.200826.002 V12.5.7.0.RKHINXM release-keys"
-
-BUILD_FINGERPRINT := Redmi/alioth/alioth:11/RKQ1.200826.002/V12.5.7.0.RKHINXM:user/release-keys
+BUILD_FINGERPRINT := google/redfin/redfin:12/SQ3A.220705.003.A1/8672226:user/release-keys

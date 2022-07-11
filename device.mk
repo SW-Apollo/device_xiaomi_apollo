@@ -17,7 +17,6 @@
 
 LOCAL_PATH := device/xiaomi/apollo
 
-AB_OTA_UPDATER := true
 TARGET_BOOTLOADER_BOARD_NAME := apollo
 
 PRODUCT_SOONG_NAMESPACES += \
@@ -27,7 +26,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel
 
 # Enable VAB compression
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
@@ -140,44 +139,12 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.ime.height_ratio=1.0 \
     ro.com.google.ime.kb_pad_port_b=14.4
 
-#################################################################################
-# This is the Start of device-alioth.mk AB configuration.
-#################################################################################
-PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    update_engine \
-    update_verifier
-
-PRODUCT_PACKAGES += \
-    tune2fs.vendor_ramdisk \
-    resize2fs.vendor_ramdisk
-
-PRODUCT_PACKAGES += \
-    update_engine_sideload
-
-# Userdata Checkpointing OTA GC
-PRODUCT_PACKAGES += \
-    checkpoint_gc
-
 PRODUCT_PACKAGES += \
     bootctrl.gourami \
     bootctrl.gourami.recovery
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cp_system_other_odex=1
-
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
-
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_vendor=true \
-    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=ext4 \
-    POSTINSTALL_OPTIONAL_vendor=true
 
 # Boot control HAL
 PRODUCT_PACKAGES += \

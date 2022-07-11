@@ -16,7 +16,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_alioth.mk
+    $(LOCAL_DIR)/aosp_apollo.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_alioth-userdebug
+    aosp_apollo-userdebug
