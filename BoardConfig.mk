@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/alioth
+DEVICE_PATH := device/xiaomi/apollo
 
 include build/make/target/board/BoardConfigMainlineCommon.mk
 include build/make/target/board/BoardConfigPixelCommon.mk
@@ -41,10 +41,10 @@ BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := alioth
+TARGET_OTA_ASSERT_DEVICE := apollo
 
 # Board Info
-TARGET_BOARD_INFO_FILE := device/xiaomi/alioth/board-info.txt
+TARGET_BOARD_INFO_FILE := device/xiaomi/apollo/board-info.txt
 
 # Kernel
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
@@ -70,7 +70,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image
-TARGET_PREBUILT_KERNEL := device/xiaomi/alioth-kernel/Image
+TARGET_PREBUILT_KERNEL := device/xiaomi/apollo-kernel/Image
 
 # DTBO partition definitions
 BOARD_PREBUILT_DTBOIMAGE := device/xiaomi/$(TARGET_BOOTLOADER_BOARD_NAME)-kernel/dtbo.img
@@ -139,7 +139,7 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # vendor.img
-BOARD_PREBUILT_VENDORIMAGE := vendor/xiaomi/alioth-vendor/vendor.img
+BOARD_PREBUILT_VENDORIMAGE := vendor/xiaomi/apollo-vendor/vendor.img
 #BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 ifneq ($(WITH_GMS),true)
@@ -198,4 +198,4 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 8602517504
 # DTB
 BOARD_PREBUILT_DTBIMAGE_DIR := device/xiaomi/$(TARGET_BOOTLOADER_BOARD_NAME)-kernel
 
-include device/xiaomi/alioth-firmware/BoardConfigVendor.mk
+include device/xiaomi/apollo-firmware/BoardConfigVendor.mk

@@ -15,13 +15,13 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/xiaomi/alioth
+LOCAL_PATH := device/xiaomi/apollo
 
 AB_OTA_UPDATER := true
-TARGET_BOOTLOADER_BOARD_NAME := alioth
+TARGET_BOOTLOADER_BOARD_NAME := apollo
 
 PRODUCT_SOONG_NAMESPACES += \
-    device/xiaomi/alioth \
+    device/xiaomi/apollo \
     hardware/google/av \
     hardware/google/interfaces \
     hardware/google/pixel
@@ -45,14 +45,6 @@ BOARD_SHIPPING_API_LEVEL := 30
 # Device Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
-
-PRODUCT_PACKAGES += \
-    SettingsProviderM2012K11AC \
-    SettingsProviderM2012K11AG \
-    SettingsProviderM2012K11AI \
-    WifiOverlayM2012K11AC \
-    WifiOverlayM2012K11AG \
-    WifiOverlayM2012K11AI
 
 # Enable Dynamic Paritions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -202,4 +194,4 @@ PRODUCT_COPY_FILES += \
 
 BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
 
-$(call inherit-product, vendor/xiaomi/alioth/alioth-vendor.mk)
+$(call inherit-product, vendor/xiaomi/apollo/apollo-vendor.mk)
